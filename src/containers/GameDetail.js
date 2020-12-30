@@ -8,7 +8,6 @@ import Loader from "../components/Loader";
 import Detail from "../components/Detail";
 
 const GameDetail = ({ id }) => {
-  console.log(id);
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
   const [game, setGame] = useState({});
@@ -90,6 +89,15 @@ const StyledDetail = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 1300px) {
+    padding: 2.5rem 5rem;
+  }
+  @media (max-width: 1100px) {
+    padding: 2.5rem 1rem;
+  }
+  @media (max-width: 800px) {
+    padding: 2.5rem 0rem;
+  }
 `;
 
 export default GameDetail;

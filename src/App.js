@@ -9,6 +9,7 @@ import GlobalStyles from "./components/GlobalStyles";
 import { useModes } from "./components/useModes";
 import { lightTheme, darkTheme } from "./components/Themes";
 import GameDetail from "./containers/GameDetail";
+import NoPageFound from "./components/NoPageFound";
 
 function App() {
   const [sidebarStatus, setSidebarStatus] = useState(false);
@@ -59,6 +60,7 @@ function App() {
               path="/games/:id"
               render={(props) => <GameDetail id={props.match.params.id} />}
             />
+            <Route component={NoPageFound} />
           </Switch>
         </StyledWindow>
       </div>
@@ -69,8 +71,15 @@ function App() {
 const StyledWindow = styled.div`
   transition: all 0.5s ease;
   height: 100%;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
   &.active {
     margin-left: 350px;
+  }
+  @media (max-width: 870px) {
+    &.active {
+      margin-left: 0px;
+    }
   }
 `;
 

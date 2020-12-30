@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
+import { resizeImage } from "../utilities";
+
 const Game = ({ game }) => {
   const history = useHistory();
   const clickedHandler = (id) => {
@@ -12,7 +14,10 @@ const Game = ({ game }) => {
     <StyledCard onClick={() => clickedHandler(game.id)}>
       <h2>{game.name}</h2>
       <p>{game.released}</p>
-      <img src={game.background_image} alt={game.name}></img>
+      {game.background_image ? (
+        // <img src={game.background_image} alt={game.name}></img>
+        <img src={resizeImage(game.background_image)} alt={game.name}></img>
+      ) : null}
     </StyledCard>
   );
 };
@@ -20,9 +25,10 @@ const Game = ({ game }) => {
 const StyledCard = styled.div`
   margin-top: 3rem;
   height: 450px;
+  width: 100%;
   text-align: center;
   border-radius: 12px;
-  box-shadow: 0px 5px 20px ${({ theme }) => theme.boxShadow};
+  box-shadow: 0px 5px 30px ${({ theme }) => theme.boxShadow};
   cursor: pointer;
   overflow: hidden;
   h2 {

@@ -16,12 +16,9 @@ const Home = ({ searchPattern }) => {
   const [games, setGames] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [title, setTitle] = useState("");
-  console.log("home");
-  console.log(searchPattern);
 
   useEffect(() => {
     setIsLoading(true);
-    console.log("run effect on Home.js");
 
     let func;
     if (searchPattern === "popular-games") {
@@ -56,16 +53,15 @@ const Home = ({ searchPattern }) => {
 };
 
 const StyledHome = styled.div`
-  padding: 1rem;
+  padding: 3rem 1rem 1rem 1rem;
   width: 100%;
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   transition: all 0.5s ease;
+  @media (max-width: 870px) {
+    padding: 10rem 1rem 1rem 1rem;
+  }
 `;
 
 const StyledTitle = styled.h1`

@@ -55,12 +55,18 @@ const StyledNav = styled.nav`
   background: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   transition: all 0.5s ease;
-
+  z-index: 10;
   svg {
     width: 40px;
     height: 40px;
     cursor: pointer;
     fill: ${({ theme }) => theme.text};
+  }
+  @media (max-width: 870px) {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
   }
 `;
 

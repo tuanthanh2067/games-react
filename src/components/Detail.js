@@ -8,6 +8,8 @@ import nintendo from "../assets/img/nintendo.svg";
 import apple from "../assets/img/apple.svg";
 import gamepad from "../assets/img/gamepad.svg";
 
+import { resizeImage } from "../utilities";
+
 const Detail = ({ game, screenshots }) => {
   const getDevelopers = () => {
     let string = "";
@@ -20,7 +22,6 @@ const Detail = ({ game, screenshots }) => {
     return string;
   };
   const getPlatform = (name) => {
-    console.log(name);
     switch (name) {
       case "PlayStation 4":
         return playstation;
@@ -43,7 +44,10 @@ const Detail = ({ game, screenshots }) => {
 
   return (
     <>
-      <StyledImage src={game.background_image} alt={game.name}></StyledImage>
+      <StyledImage
+        src={resizeImage(game.background_image)}
+        alt={game.name}
+      ></StyledImage>
       <h2>{game.name}</h2>
       <StyledReleasedDate>Released Date: {game.released}</StyledReleasedDate>
       <h3>Developed by: {getDevelopers()}</h3>
@@ -73,7 +77,11 @@ const Detail = ({ game, screenshots }) => {
       <StyledScreenshots>
         <h1>Game Screenshots</h1>
         {screenshots.map((screenshot) => (
-          <img src={screenshot.image} alt={screenshot.id}></img>
+          <img
+            src={resizeImage(screenshot.image)}
+            alt={screenshot.id}
+            key={screenshot.id}
+          ></img>
         ))}
       </StyledScreenshots>
     </>
@@ -87,6 +95,15 @@ const StyledImage = styled.img`
 const StyledDescription = styled.p`
   font-size: 1.4rem;
   margin: 1.5rem 0rem;
+  @media (max-width: 900px) {
+    font-size: 1.3rem;
+  }
+  @media (max-width: 650px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1rem;
+  }
 `;
 
 const StyledReleasedDate = styled.h3`
@@ -99,6 +116,18 @@ const StyledRatingAndPlatform = styled.div`
   height: 60px;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 1400px) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+  }
+
+  @media (max-width: 650px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const StyledAvailable = styled.div`
@@ -108,6 +137,14 @@ const StyledAvailable = styled.div`
     margin-left: 0.5rem;
     img {
       margin: 0rem 0.35rem;
+      @media (max-width: 900px) {
+        width: 35px;
+        height: 35px;
+      }
+      @media (max-width: 650px) {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 `;
