@@ -8,6 +8,7 @@ import Sidebar from "./components/Sidebar";
 import GlobalStyles from "./components/GlobalStyles";
 import { useModes } from "./components/useModes";
 import { lightTheme, darkTheme } from "./components/Themes";
+import GameDetail from "./containers/GameDetail";
 
 function App() {
   const [sidebarStatus, setSidebarStatus] = useState(false);
@@ -54,6 +55,10 @@ function App() {
                 <Home searchPattern={props.match.params.pattern} />
               )}
             />
+            <Route
+              path="/games/:id"
+              render={(props) => <GameDetail id={props.match.params.id} />}
+            />
           </Switch>
         </StyledWindow>
       </div>
@@ -63,7 +68,7 @@ function App() {
 
 const StyledWindow = styled.div`
   transition: all 0.5s ease;
-  min-height: 100%;
+  height: 100%;
   &.active {
     margin-left: 350px;
   }

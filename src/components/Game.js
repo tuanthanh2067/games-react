@@ -1,9 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const Game = ({ game }) => {
+  const history = useHistory();
+  const clickedHandler = (id) => {
+    history.push(`/games/${id}`);
+  };
+
   return (
-    <StyledCard>
+    <StyledCard onClick={() => clickedHandler(game.id)}>
       <h2>{game.name}</h2>
       <p>{game.released}</p>
       <img src={game.background_image} alt={game.name}></img>
