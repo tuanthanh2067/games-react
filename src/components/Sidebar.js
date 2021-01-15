@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SearchBar from "../containers/SearchBar";
+import SearchBar from "./SearchBar";
 import Category from "./Category";
 
 const Sidebar = ({ sidebarStatus }) => {

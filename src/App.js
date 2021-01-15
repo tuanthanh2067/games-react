@@ -3,12 +3,12 @@ import styled, { ThemeProvider } from "styled-components";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import Nav from "./components/Nav";
-import Home from "./containers/Home";
+import Home from "./components/Home";
 import Sidebar from "./components/Sidebar";
 import GlobalStyles from "./components/GlobalStyles";
 import { useModes } from "./components/useModes";
 import { lightTheme, darkTheme } from "./components/Themes";
-import GameDetail from "./containers/GameDetail";
+import GameDetail from "./components/GameDetail";
 import NoPageFound from "./components/NoPageFound";
 
 function App() {

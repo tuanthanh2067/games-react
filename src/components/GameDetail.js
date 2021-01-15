@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
 import { gameDetailsURL, gameScreenshotURL } from "../api";
-import Loader from "../components/Loader";
-import Detail from "../components/Detail";
+import Loader from "./Loader";
+import Detail from "./Detail";
 
 const GameDetail = ({ id }) => {
   const history = useHistory();

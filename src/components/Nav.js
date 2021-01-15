@@ -51,7 +51,7 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 3rem 1rem 1rem 1rem;
-  border-bottom: 4px solid #eeeeee;
+  border-bottom: 2px solid #eeeeee;
   background: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   transition: all 0.5s ease;
